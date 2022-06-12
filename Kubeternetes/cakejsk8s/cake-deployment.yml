@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cake-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: cake-defi
+          image: 8392019284.dkr.ecr.us−west−1.amazonaws.com/defi−api:1.0.0
+          ports:
+            - containerPort: 3000
